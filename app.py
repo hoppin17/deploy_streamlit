@@ -3,32 +3,32 @@ import pandas as pd
 import numpy as np
 
 
-menu = ['csv 업로드']
+# menu = ['csv 업로드']
 
-choice = st.sidebar.selectbox('메뉴', menu)
-# 사이드에 list의 선택박스를 생성한다.
+# choice = st.sidebar.selectbox('메뉴', menu)
+# # 사이드에 list의 선택박스를 생성한다.
 
-def save_uploaded_file(directory, file):
-    # 1. 저장할 디렉토리(폴더) 있는지 확인
-    #   없다면 디렉토리를 먼저 만든다.
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+# def save_uploaded_file(directory, file):
+#     # 1. 저장할 디렉토리(폴더) 있는지 확인
+#     #   없다면 디렉토리를 먼저 만든다.
+#     if not os.path.exists(directory):
+#         os.makedirs(directory)
     
-    # 2. 디렉토리가 있으니, 파일 저장
-    with open(os.path.join(directory, file.name), 'wb') as f:
-        f.write(file.getbuffer())
-    return st.success('파일 업로드 성공!')
+#     # 2. 디렉토리가 있으니, 파일 저장
+#     with open(os.path.join(directory, file.name), 'wb') as f:
+#         f.write(file.getbuffer())
+#     return st.success('파일 업로드 성공!')
 
-csv_file = st.file_uploader('CSV 파일 업로드', type=['csv'])
+# csv_file = st.file_uploader('CSV 파일 업로드', type=['csv'])
 
 
 
-df = pd.read_csv('5.5_viz_dataset.csv')
-df_main_main = pd.read_csv('main_actor_cross.csv', index_col='Unnamed: 0')
-df_main_sub = pd.read_csv('main_sub.csv', index_col='Unnamed: 0')
+df = pd.read_csv('./5.5_viz_dataset.csv')
+df_main_main = pd.read_csv('./main_actor_cross.csv', index_col='Unnamed: 0')
+df_main_sub = pd.read_csv('./main_sub.csv', index_col='Unnamed: 0')
 
-df_main_main_see = pd.read_csv('main_actor_cross_see.csv', index_col='Unnamed: 0')
-df_main_sub_see = pd.read_csv('main_sub_see.csv', index_col='Unnamed: 0')
+df_main_main_see = pd.read_csv('./main_actor_cross_see.csv', index_col='Unnamed: 0')
+df_main_sub_see = pd.read_csv('./main_sub_see.csv', index_col='Unnamed: 0')
 
 
 st.dataframe(df)
